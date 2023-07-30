@@ -1,0 +1,15 @@
+{
+  "name": "que10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "start": "node index.js",
+    "script1": "node script1.js",
+    "script2": "node script2.js",
+    "script3": "node script3.js"
+  },
+  "author": "pooja patel",
+  "license": "ISC"
+}

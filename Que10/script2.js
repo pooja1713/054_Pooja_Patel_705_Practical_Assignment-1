@@ -1,0 +1,1 @@
+console.log("This is my user Define Script File script2.js");

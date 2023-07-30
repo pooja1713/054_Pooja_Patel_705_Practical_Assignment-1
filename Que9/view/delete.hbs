@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crud Using Bootstrap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h3 class="text-center text-success text-opacity-75 mt-2">Delete Employee Details </h3>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-opacity-75">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="/">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="/search">SEARCH</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="/update">UPDATE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="/delete">DELETE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="/view">VIEW</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="/view">VIEW STUDENT</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mx-auto mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                {{!-- <h3>Fill This Employee Data</h3> --}}
+                <div class="card">
+                    <form class="form-card" action="/searchDatafordelete">
+                        <div class="row justify-content-start mt-2">
+                            <div class="form-group col-12 col-sm-4 mb-3">
+                                <button type="submit" class="btn  btn-block">👉Click Here👈</button>
+                            </div>
+                        </div>
+                        {{#if datadelete}}
+                        <div class="text-center mt-3">
+                            <h4>Data Delete..!</h4>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if errordisplaydata}}
+                        <div class="text-center mt-3">
+                            <h4>Oops! No Data Found 😟😟</h4>
+                        </div>
+                        {{/if}}
+                    </form>
+                    {{#if data}}
+                    {{!-- <input type="text" name="deleteid" value="" hidden> --}}
+                    <form action="/deletedata">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">FName</th>
+                                        <th scope="col">LName</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Mobile No</th>
+                                        <th scope="col">Job</th>
+                                        <th scope="col">Salary</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    {{#data}}
+                                    {{!-- <div name="id" hidden>{{this.emp_id}}</div> --}}
+                                    <tr>
+                                        <th scope="row">{{this.emp_id}}</th>
+                                        <td>{{fname}}</td>
+                                        <td>{{lname}}</td>
+                                        <td>{{email}}</td>
+                                        <td>{{phonenumber}}</td>
+                                        <td>{{job}}</td>
+                                        <td>{{salary}}</td>
+                                        <td><button type="submit" class="btn  btn-danger btn-block" name="deleteid"
+                                                value="{{emp_id}}">Delete</button></td>
+                                    </tr>
+                                    {{/data}}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </form>
+                    {{/if}}
+
+
+
+
+                    {{!-- </form> --}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
